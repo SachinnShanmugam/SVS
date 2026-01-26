@@ -141,7 +141,7 @@ ul {
     justify-content: flex-end;
     /* Push content (buttons) to bottom */
     align-items: center;
-    background-image: url('../assets/images/hero_banner.jpg');
+    background-image: url('../assets/images/hero_banner.jpg?v=2');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
