@@ -386,6 +386,135 @@ ul {
     gap: 30px;
 }
 
+/* Video Showcase */
+.video-showcase {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #000;
+    /* Cinematic background */
+    padding: 20px 0;
+    /* Cinematic spacing */
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    /* Max width helps on desktop to not be too huge for a square video */
+    max-width: 600px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--secondary-color);
+}
+
+.square-video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+}
+
+/* Mobile specific override just in case */
+@media (max-width: 768px) {
+    .video-showcase {
+        padding: 0;
+        /* Edge to edge on mobile */
+    }
+
+    .video-wrapper {
+        border-radius: 0;
+        /* No radius for edge-to-edge look */
+        border: none;
+        border-top: 1px solid var(--secondary-color);
+        border-bottom: 1px solid var(--secondary-color);
+        max-width: 100%;
+    }
+}
+
+.video-wrapper iframe,
+.video-wrapper video,
+.video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-placeholder {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/hero_banner.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.video-placeholder:hover {
+    transform: scale(1.02);
+}
+
+.play-icon {
+    font-size: 4rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+/* Product Marquee */
+.marquee-section {
+    padding: 20px 0;
+    background-color: #05161d;
+    overflow: hidden;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 20px;
+    animation: scroll 30s linear infinite;
+}
+
+.marquee-track img {
+    height: 150px;
+    width: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s;
+}
+
+.marquee-track img:hover {
+    transform: scale(1.05);
+    border-color: var(--secondary-color);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+        /* Move half way because list is doubled */
+    }
+}
+
 .service-card {
     background: #fff;
     padding: 40px 20px;
