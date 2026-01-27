@@ -425,10 +425,10 @@ ul {
 @media (max-width: 768px) {
     .video-showcase {
         padding: 0;
-        /* Break out of container padding for true edge-to-edge */
-        margin-left: -20px;
-        margin-right: -20px;
-        width: calc(100% + 40px);
+        /* Force true viewport width regardless of parent container */
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-right: 0;
         max-width: none;
     }
 
