@@ -121,12 +121,18 @@
 
     const galleryGrid = document.querySelector('.gallery-grid');
     const filterBtns = document.querySelectorAll('.filter-btn');
+    const loadMoreBtnContainer = document.querySelector('.gallery-more');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.querySelector('.lightbox-img');
     const lightboxCaption = document.querySelector('.lightbox-caption');
     const closeBtn = document.querySelector('.lightbox-close');
     const prevBtn = document.querySelector('.lightbox-prev');
     const nextBtn = document.querySelector('.lightbox-next');
+
+    let currentCategory = 'all';
+    let visibleLimit = 9; // 3 rows * 3 items
+    const ITEMS_PER_LOAD = 9;
 
     // 1. Render Gallery
     function renderGallery() {
@@ -147,8 +153,8 @@
             });
         }
 
-        // Re-initialize events for new items
         initializeGalleryEvents();
+        updateGalleryVisibility(); // Initial filter apply
     }
 
     let currentVisibleItems = [];
@@ -156,11 +162,13 @@
 
     function initializeGalleryEvents() {
         const galleryItems = document.querySelectorAll('.gallery-item');
-        currentVisibleItems = Array.from(galleryItems); // Default all
 
         // Attach Click to Open Lightbox
         galleryItems.forEach(item => {
             item.addEventListener('click', () => {
+                // Must recalculate index based on currently visible set because hidden items shouldn't be navigable
+                // However, we want to allow opening ANY item, but navigation should strictly follow the visible list.
+                // Simplified: Navigation uses 'currentVisibleItems' array.
                 const index = currentVisibleItems.indexOf(item);
                 if (index !== -1) {
                     openLightbox(index);
@@ -169,31 +177,68 @@
         });
     }
 
+    // Core Visibility Logic
+    function updateGalleryVisibility() {
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const matchedItems = [];
+
+        // 1. Identify all matching items for current category
+        galleryItems.forEach(item => {
+            const itemCategory = item.getAttribute('data-category');
+            if (currentCategory === 'all' || itemCategory === currentCategory) {
+                matchedItems.push(item);
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        // 2. Show only up to the limit
+        matchedItems.forEach((item, index) => {
+            if (index < visibleLimit) {
+                item.style.display = 'block';
+                // Only animate if it was previously hidden to avoid flicker? 
+                // For simplicity, we just set display. Animation can be added if needed but straightforward display block is safer.
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        // 3. Update Global visible list for Lightbox
+        // We only navigate through what is valid for the filter, but potentially hidden by "Load More"
+        // Wait, strictly speaking lightbox should probably cycle through ALL matching items of the filter? 
+        // Or only the *shown* ones? Usually only the shown ones to match what user sees.
+        currentVisibleItems = matchedItems.slice(0, visibleLimit);
+
+        // 4. Handle "View More" Button
+        if (matchedItems.length > visibleLimit) {
+            loadMoreBtnContainer.style.display = 'block';
+        } else {
+            loadMoreBtnContainer.style.display = 'none';
+        }
+    }
+
     // 2. Filter Logic
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            const filterValue = btn.getAttribute('data-filter');
-            const galleryItems = document.querySelectorAll('.gallery-item');
+            currentCategory = btn.getAttribute('data-filter');
+            visibleLimit = ITEMS_PER_LOAD; // Reset limit on filter change
 
-            // Filter Display & Update Visible List
-            currentVisibleItems = [];
-
-            galleryItems.forEach(item => {
-                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                    item.style.display = 'block';
-                    item.animate([{ opacity: 0, transform: 'scale(0.9)' }, { opacity: 1, transform: 'scale(1)' }], { duration: 300 });
-                    currentVisibleItems.push(item);
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+            updateGalleryVisibility();
         });
     });
 
-    // 3. Lightbox Logic
+    // 3. Load More Logic
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+            visibleLimit += ITEMS_PER_LOAD;
+            updateGalleryVisibility();
+        });
+    }
+
+    // 4. Lightbox Logic
     function openLightbox(index) {
         currentIndex = index;
         updateLightboxImage();
@@ -247,6 +292,3 @@
     // Initialize
     renderGallery();
 });
-
-
-
