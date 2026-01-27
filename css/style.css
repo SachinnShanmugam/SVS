@@ -631,18 +631,25 @@ ul {
     .tamil-label {
         font-size: 0.7em;
     }
-}
 
-.overlay {
-    opacity: 1;
-    /* Always show title on mobile since no hover */
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
-    padding: 10px;
-}
+    /* Force 3-column grid on mobile */
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+    }
 
-.overlay h4 {
-    font-size: 0.8rem;
-}
+    .overlay {
+        opacity: 1;
+        /* Always show title on mobile since no hover */
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+        padding: 5px;
+    }
+
+    .overlay h4 {
+        font-size: 0.65rem;
+        font-weight: 500;
+        line-height: 1.2;
+    }
 }
 
 .gallery-grid {
@@ -680,6 +687,57 @@ ul {
 
 .gallery-item:hover img {
     transform: scale(1.1);
+}
+
+/* Premium View More Button */
+#loadMoreBtn {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-top: 20px;
+}
+
+#loadMoreBtn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--gradient-gold);
+    transition: width 0.4s ease;
+    z-index: -1;
+}
+
+#loadMoreBtn:hover {
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+    transform: translateY(-3px) scale(1.02);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#loadMoreBtn:hover:before {
+    width: 100%;
+}
+
+#loadMoreBtn .tamil-label {
+    margin-left: 8px;
+    font-size: 0.9em;
+    opacity: 0.8;
+    color: inherit;
+    font-weight: 500;
 }
 
 /* Lightbox Styles */
