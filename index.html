@@ -156,28 +156,77 @@
         </div>
     </section>
 
-    <!-- Product Marquee (Infinite Scroll) -->
-    <section class="marquee-section">
-        <div class="marquee-container">
-            <div class="marquee-track">
-                <!-- Real Products Loop -->
-                <img src="assets/products/product1.png" alt="Sri Veeranar Product 1">
-                <img src="assets/products/product2.png" alt="Sri Veeranar Product 2">
-                <img src="assets/products/product3.png" alt="Sri Veeranar Product 3">
-                <img src="assets/products/product4.png" alt="Sri Veeranar Product 4">
-                <img src="assets/products/product1.png" alt="Sri Veeranar Product 1">
-                <img src="assets/products/product2.png" alt="Sri Veeranar Product 2">
-                <img src="assets/products/product3.png" alt="Sri Veeranar Product 3">
-                <img src="assets/products/product4.png" alt="Sri Veeranar Product 4">
-                <!-- Duplicate for seamless scroll -->
-                <img src="assets/products/product1.png" alt="Sri Veeranar Product 1">
-                <img src="assets/products/product2.png" alt="Sri Veeranar Product 2">
-                <img src="assets/products/product3.png" alt="Sri Veeranar Product 3">
-                <img src="assets/products/product4.png" alt="Sri Veeranar Product 4">
-                <img src="assets/products/product1.png" alt="Sri Veeranar Product 1">
-                <img src="assets/products/product2.png" alt="Sri Veeranar Product 2">
-                <img src="assets/products/product3.png" alt="Sri Veeranar Product 3">
-                <img src="assets/products/product4.png" alt="Sri Veeranar Product 4">
+    <!-- Product Gallery Section -->
+    <section id="gallery" class="section gallery">
+        <div class="container">
+            <h2 class="section-title">
+                Our Masterpieces
+                <span class="tamil-text"
+                    style="font-size: 0.6em; display: block; margin-top: 5px; color: var(--secondary-color); text-transform: none;">எங்களின்
+                    படைப்புகள்</span>
+            </h2>
+            <div class="gallery-filters scroller">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="idols">Idols</button>
+                <button class="filter-btn" data-filter="structures">Structures</button>
+                <button class="filter-btn" data-filter="jewelry">Jewelry</button>
+                <button class="filter-btn" data-filter="restoration">Restoration</button>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Idols -->
+                <div class="gallery-item" data-category="idols">
+                    <img src="assets/products/product1.png" alt="Panchaloha Idol">
+                    <div class="overlay">
+                        <h4>Panchaloha Idol</h4>
+                    </div>
+                </div>
+                <!-- Structures -->
+                <div class="gallery-item" data-category="structures">
+                    <img src="assets/products/product2.png" alt="Temple Structure">
+                    <div class="overlay">
+                        <h4>Temple Structure</h4>
+                    </div>
+                </div>
+                <!-- Jewelry -->
+                <div class="gallery-item" data-category="jewelry">
+                    <img src="assets/products/product3.png" alt="Temple Jewelry">
+                    <div class="overlay">
+                        <h4>Temple Jewelry</h4>
+                    </div>
+                </div>
+                <!-- Restoration -->
+                <div class="gallery-item" data-category="restoration">
+                    <img src="assets/products/product4.png" alt="Restoration Work">
+                    <div class="overlay">
+                        <h4>Restoration Work</h4>
+                    </div>
+                </div>
+                <!-- Extras for demo -->
+                <div class="gallery-item" data-category="idols">
+                    <img src="assets/products/product1.png" alt="Panchaloha Idol">
+                    <div class="overlay">
+                        <h4>Panchaloha Idol</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="structures">
+                    <img src="assets/products/product2.png" alt="Temple Structure">
+                    <div class="overlay">
+                        <h4>Temple Structure</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="jewelry">
+                    <img src="assets/products/product3.png" alt="Temple Jewelry">
+                    <div class="overlay">
+                        <h4>Temple Jewelry</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="restoration">
+                    <img src="assets/products/product4.png" alt="Restoration Work">
+                    <div class="overlay">
+                        <h4>Restoration Work</h4>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -212,6 +261,17 @@
     <footer>
         <p>&copy; 2026 Sri Veeranar Sirpalayas. All Rights Reserved.</p>
     </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <button class="lightbox-prev"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="lightbox-next"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-img">
+            <h4 class="lightbox-caption"></h4>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
