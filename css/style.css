@@ -370,8 +370,8 @@ ul {
 
 @media (max-width: 768px) {
     .section-title {
-        font-size: 1.25rem;
-        /* Increased from 1rem as requested */
+        font-size: 1.5rem;
+        /* Increased size, fits "TRADITIONAL CRAFT" */
         letter-spacing: 0.5px;
         white-space: nowrap;
         /* Keep it one line */
