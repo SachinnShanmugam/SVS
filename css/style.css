@@ -403,10 +403,6 @@ ul {
     width: 100%;
     /* Max width helps on desktop to not be too huge for a square video */
     max-width: 600px;
-    min-height: 300px;
-    /* Force visibility even if video fails */
-    background: #111;
-    /* Dark background to see the container */
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -425,7 +421,11 @@ ul {
 @media (max-width: 768px) {
     .video-showcase {
         padding: 0;
-        /* Edge to edge on mobile */
+        /* Break out of container padding for true edge-to-edge */
+        margin-left: -20px;
+        margin-right: -20px;
+        width: calc(100% + 40px);
+        max-width: none;
     }
 
     .video-wrapper {
