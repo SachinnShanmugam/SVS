@@ -370,12 +370,11 @@ ul {
 
 @media (max-width: 768px) {
     .section-title {
-        font-size: 1rem;
-        /* Small enough to fit "CRAFTSMANSHIP" on one line */
+        font-size: 1.25rem;
+        /* Increased from 1rem as requested */
         letter-spacing: 0.5px;
-        /* Tighter letter spacing on mobile */
         white-space: nowrap;
-        /* Force one line */
+        /* Keep it one line */
         overflow: hidden;
         /* Prevent scrollbar if it barely overflows */
         text-overflow: ellipsis;
