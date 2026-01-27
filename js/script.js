@@ -192,22 +192,18 @@
             }
         });
 
-        // 2. Show only up to the limit
+        // 2. Show only up to the limit (Visual Grid only)
         matchedItems.forEach((item, index) => {
             if (index < visibleLimit) {
                 item.style.display = 'block';
-                // Only animate if it was previously hidden to avoid flicker? 
-                // For simplicity, we just set display. Animation can be added if needed but straightforward display block is safer.
             } else {
                 item.style.display = 'none';
             }
         });
 
         // 3. Update Global visible list for Lightbox
-        // We only navigate through what is valid for the filter, but potentially hidden by "Load More"
-        // Wait, strictly speaking lightbox should probably cycle through ALL matching items of the filter? 
-        // Or only the *shown* ones? Usually only the shown ones to match what user sees.
-        currentVisibleItems = matchedItems.slice(0, visibleLimit);
+        // KEY CHANGE: Lightbox gets ALL matched items, allowing navigation through hidden ones
+        currentVisibleItems = matchedItems;
 
         // 4. Handle "View More" Button
         if (matchedItems.length > visibleLimit) {
