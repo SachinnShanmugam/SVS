@@ -405,8 +405,10 @@ ul {
 /* Services Grid */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    /* slightly smaller min-width for better fitting */
+    gap: 15px;
+    /* Reduced from 30px for precision */
 }
 
 /* Video Showcase */
@@ -496,9 +498,11 @@ ul {
 }
 
 .play-icon {
-    font-size: 4rem;
+    font-size: 2rem;
+    /* Reduced from 3rem */
     color: var(--secondary-color);
     margin-bottom: 10px;
+    /* Reduced from 20px */
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
 }
 
