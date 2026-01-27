@@ -54,17 +54,68 @@
     });    // Gallery Configuration (Manage your images here)
     const galleryData = {
         'structures': [
-            { src: 'structure1.png', title: 'Structure1' }
+            { src: 'structure1.jpg', title: 'Structure1' },
+            { src: 'structure2.jpg', title: 'Structure2' },
+            { src: 'structure3.jpg', title: 'Structure3' },
+            { src: 'structure4.jpg', title: 'Structure4' },
+            { src: 'structure5.jpg', title: 'Structure5' },
+            { src: 'structure6.jpg', title: 'Structure6' },
+            { src: 'structure7.jpg', title: 'Structure7' }
         ],
         'temple-works': [
-            { src: 'work1.png', title: 'Work1' }
+            { src: 'work1.jpg', title: 'Work1' },
+            { src: 'work2.jpg', title: 'Work2' },
+            { src: 'work3.jpg', title: 'Work3' },
+            { src: 'work4.jpg', title: 'Work4' }
         ],
         'ornaments': [
-            { src: 'ornament1.png', title: 'Ornament1' }
+            { src: 'ornament1.jpg', title: 'Ornament1' },
+            { src: 'ornament10.jpg', title: 'Ornament10' },
+            { src: 'ornament11.jpg', title: 'Ornament11' },
+            { src: 'ornament12.jpg', title: 'Ornament12' },
+            { src: 'ornament13.jpg', title: 'Ornament13' },
+            { src: 'ornament14.jpg', title: 'Ornament14' },
+            { src: 'ornament15.jpg', title: 'Ornament15' },
+            { src: 'ornament16.jpg', title: 'Ornament16' },
+            { src: 'ornament17.jpg', title: 'Ornament17' },
+            { src: 'ornament18.jpg', title: 'Ornament18' },
+            { src: 'ornament19.jpg', title: 'Ornament19' },
+            { src: 'ornament2.jpg', title: 'Ornament2' },
+            { src: 'ornament20.jpg', title: 'Ornament20' },
+            { src: 'ornament21.jpg', title: 'Ornament21' },
+            { src: 'ornament22.jpg', title: 'Ornament22' },
+            { src: 'ornament23.jpg', title: 'Ornament23' },
+            { src: 'ornament24.jpg', title: 'Ornament24' },
+            { src: 'ornament25.jpg', title: 'Ornament25' },
+            { src: 'ornament26.jpg', title: 'Ornament26' },
+            { src: 'ornament27.jpg', title: 'Ornament27' },
+            { src: 'ornament28.jpg', title: 'Ornament28' },
+            { src: 'ornament3.jpg', title: 'Ornament3' },
+            { src: 'ornament4.jpg', title: 'Ornament4' },
+            { src: 'ornament5.jpg', title: 'Ornament5' },
+            { src: 'ornament6.jpg', title: 'Ornament6' },
+            { src: 'ornament7.jpg', title: 'Ornament7' },
+            { src: 'ornament8.jpg', title: 'Ornament8' },
+            { src: 'ornament9.jpg', title: 'Ornament9' }
         ],
         'idols': [
-            { src: 'idol1.png', title: 'Idol1' },
-            { src: 'idol2.png', title: 'Idol2' }
+            { src: 'idol1.jpg', title: 'Idol1' },
+            { src: 'idol10.jpg', title: 'Idol10' },
+            { src: 'idol11.jpg', title: 'Idol11' },
+            { src: 'idol12.jpg', title: 'Idol12' },
+            { src: 'idol13.jpg', title: 'Idol13' },
+            { src: 'idol14.jpg', title: 'Idol14' },
+            { src: 'idol15.jpg', title: 'Idol15' },
+            { src: 'idol16.jpg', title: 'Idol16' },
+            { src: 'idol17.jpg', title: 'Idol17' },
+            { src: 'idol2.jpg', title: 'Idol2' },
+            { src: 'idol3.jpg', title: 'Idol3' },
+            { src: 'idol4.jpg', title: 'Idol4' },
+            { src: 'idol5.jpg', title: 'Idol5' },
+            { src: 'idol6.jpg', title: 'Idol6' },
+            { src: 'idol7.jpg', title: 'Idol7' },
+            { src: 'idol8.jpg', title: 'Idol8' },
+            { src: 'idol9.jpg', title: 'Idol9' }
         ],
     };
 
@@ -196,4 +247,6 @@
     // Initialize
     renderGallery();
 });
+
+
 
