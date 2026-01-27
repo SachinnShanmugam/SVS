@@ -233,7 +233,7 @@
     // 3. Load More Logic
     if (loadMoreBtn) {
         loadMoreBtn.addEventListener('click', () => {
-            visibleLimit += ITEMS_PER_LOAD;
+            visibleLimit = 1000; // Show all (expand fully)
             updateGalleryVisibility();
         });
     }
