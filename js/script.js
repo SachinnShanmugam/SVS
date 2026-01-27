@@ -52,9 +52,24 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.animate-text, .service-card').forEach(el => {
         observer.observe(el);
     });
-    // Gallery Filtering & Lightbox
+    // Gallery Configuration (Manage your images here)
+    const galleryData = {
+        'idols': [
+            { src: 'idol1.png', title: 'Panchaloha Idol' }
+        ],
+        'structures': [
+            { src: 'structure1.png', title: 'Temple Structure' }
+        ],
+        'ornaments': [
+            { src: 'ornament1.png', title: 'Kavasam & Ornaments' }
+        ],
+        'temple-works': [
+            { src: 'work1.png', title: 'Temple Work' }
+        ]
+    };
+
+    const galleryGrid = document.querySelector('.gallery-grid');
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.querySelector('.lightbox-img');
     const lightboxCaption = document.querySelector('.lightbox-caption');
@@ -62,40 +77,77 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.querySelector('.lightbox-prev');
     const nextBtn = document.querySelector('.lightbox-next');
 
-    let currentVisibleItems = Array.from(galleryItems); // Default to all
+    // 1. Render Gallery
+    function renderGallery() {
+        galleryGrid.innerHTML = ''; // Clear existing
+
+        for (const [category, items] of Object.entries(galleryData)) {
+            items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'gallery-item';
+                div.setAttribute('data-category', category);
+
+                div.innerHTML = `
+                    <img src="assets/products/${category}/${item.src}" alt="${item.title}">
+                    <div class="overlay"><h4>${item.title}</h4></div>
+                `;
+
+                galleryGrid.appendChild(div);
+            });
+        }
+
+        // Re-initialize events for new items
+        initializeGalleryEvents();
+    }
+
+    let currentVisibleItems = [];
     let currentIndex = 0;
 
-    // Filter Logic
+    function initializeGalleryEvents() {
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        currentVisibleItems = Array.from(galleryItems); // Default all
+
+        // Attach Click to Open Lightbox
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const index = currentVisibleItems.indexOf(item);
+                if (index !== -1) {
+                    openLightbox(index);
+                }
+            });
+        });
+    }
+
+    // 2. Filter Logic
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
             const filterValue = btn.getAttribute('data-filter');
+            const galleryItems = document.querySelectorAll('.gallery-item');
 
-            // 1. Filter Display
+            // Filter Display & Update Visible List
+            currentVisibleItems = [];
+
             galleryItems.forEach(item => {
                 if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
                     item.style.display = 'block';
                     item.animate([{ opacity: 0, transform: 'scale(0.9)' }, { opacity: 1, transform: 'scale(1)' }], { duration: 300 });
+                    currentVisibleItems.push(item);
                 } else {
                     item.style.display = 'none';
                 }
             });
-
-            // 2. Update List of Visible Items for Lightbox Navigation
-            currentVisibleItems = Array.from(galleryItems).filter(item => {
-                return filterValue === 'all' || item.getAttribute('data-category') === filterValue;
-            });
         });
     });
 
-    // Lightbox Logic
+    // 3. Lightbox Logic
     function openLightbox(index) {
         currentIndex = index;
         updateLightboxImage();
         lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling bg
+        document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
@@ -125,33 +177,22 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLightboxImage();
     }
 
-    // Attach Click Events to Items
-    galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            // Find index of this item in the *current visible list*
-            // Note: If item is clicked but somehow not in visible list (shouldn't happen), default to 0
-            const index = currentVisibleItems.indexOf(item);
-            if (index !== -1) {
-                openLightbox(index);
-            }
-        });
-    });
-
     // Controls
     closeBtn.addEventListener('click', closeLightbox);
     nextBtn.addEventListener('click', nextImage);
     prevBtn.addEventListener('click', prevImage);
 
-    // Close on background click
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
     });
 
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (!lightbox.classList.contains('active')) return;
         if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowRight') nextImage();
         if (e.key === 'ArrowLeft') prevImage();
     });
+
+    // Initialize
+    renderGallery();
 });
