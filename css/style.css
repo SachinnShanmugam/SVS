@@ -70,14 +70,47 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 15px 20px;
     background: rgba(9, 36, 48, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 2px solid var(--secondary-color);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Header Actions (Mobile Icons) */
+.header-actions {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.header-icon {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    /* Gold */
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.header-icon:hover {
+    transform: scale(1.2);
+    color: #fff;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.8));
+    /* Premium Glow */
+}
+
+@media (min-width: 769px) {
+    .header-actions {
+        display: none;
+    }
 }
 
 .logo-text {
@@ -506,18 +539,21 @@ ul {
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
 }
 
-}
 
-100% {
+.overlay {
+    position: absolute;
+    bottom: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 80%);
     color: #fff;
-    padding: 20px 15px;
+    padding: 20px;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: all 0.4s ease;
     display: flex;
     align-items: flex-end;
+    pointer-events: none;
 }
 
 .gallery-item:hover .overlay {
@@ -1060,5 +1096,76 @@ footer {
     .trust-stats {
         font-size: 0.9rem;
         gap: 10px;
+    }
+}
+
+/* Floating Action Buttons */
+.floating-actions {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 15px;
+    z-index: 9990;
+    /* Below lightbox (10000) */
+}
+
+.float-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    text-decoration: none;
+}
+
+.float-btn:hover {
+    transform: scale(1.1) translateY(-5px);
+    color: #fff;
+}
+
+.whatsapp-btn {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+}
+
+.call-btn {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+}
+
+/* Tooltip */
+.float-btn .tooltip {
+    position: absolute;
+    right: 70px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.float-btn:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+}
+
+@media (max-width: 768px) {
+    .floating-actions {
+        display: none;
+        /* Redundant on mobile due to header icons */
     }
 }
