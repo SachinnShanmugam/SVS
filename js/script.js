@@ -55,7 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Gallery Configuration (Manage your images here)
     const galleryData = {
         'idols': [
-            { src: 'idol1.png', title: 'Panchaloha Idol' }
+            { src: 'idol1.png', title: 'Panchaloha Idol' },
+            { src: 'idol2.png', title: 'Panchaloha Idol 2' },
+            { src: 'idol2.png', title: 'Panchaloha Idol 2' }
         ],
         'structures': [
             { src: 'structure1.png', title: 'Temple Structure' }
