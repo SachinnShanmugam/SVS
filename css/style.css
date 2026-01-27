@@ -598,12 +598,34 @@ ul {
     color: #111;
 }
 
-/* =========================================
-   5. Contact / Footer
-   ========================================= */
-.contact {
-    background-color: var(--bg-color);
-    color: var(--text-light);
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Force 2 columns on mobile */
+        gap: 10px;
+        /* Tighter gap for 2-column mobile layout */
+    }
+
+    .service-card {
+        padding: 15px 10px;
+        /* Even smaller padding for mobile cards */
+    }
+
+    .icon-box {
+        font-size: 1.5rem;
+        /* Smaller icons for mobile */
+        margin-bottom: 8px;
+    }
+
+    .service-card h3 {
+        font-size: 0.9rem;
+        /* Smaller text to prevent wrapping */
+    }
+
+    .service-card p {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
 }
 
 .contact .section-title {
