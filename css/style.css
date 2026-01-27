@@ -374,7 +374,8 @@ ul {
 }
 
 .about-text p {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    /* Reduced from 20px */
 }
 
 .proprietor {
@@ -411,7 +412,8 @@ ul {
     max-width: 600px;
     overflow: hidden;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: none;
+    /* Removed shadow as requested */
     border: 2px solid var(--secondary-color);
     aspect-ratio: 1 / 1;
     /* Force square shape even if video fails */
