@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
     const mobileMenu = document.getElementById('mobile-menu');
     const navList = document.querySelector('.nav-list');
@@ -51,23 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.animate-text, .service-card').forEach(el => {
         observer.observe(el);
-    });
-    // Gallery Configuration (Manage your images here)
+    });    // Gallery Configuration (Manage your images here)
     const galleryData = {
-        'idols': [
-            { src: 'idol1.png', title: 'Panchaloha Idol' },
-            { src: 'idol2.png', title: 'Panchaloha Idol 2' },
-            { src: 'idol2.png', title: 'Panchaloha Idol 2' }
-        ],
         'structures': [
-            { src: 'structure1.png', title: 'Temple Structure' }
-        ],
-        'ornaments': [
-            { src: 'ornament1.png', title: 'Kavasam & Ornaments' }
+            { src: 'structure1.png', title: 'Structure1' }
         ],
         'temple-works': [
-            { src: 'work1.png', title: 'Temple Work' }
-        ]
+            { src: 'work1.png', title: 'Work1' }
+        ],
+        'ornaments': [
+            { src: 'ornament1.png', title: 'Ornament1' }
+        ],
+        'idols': [
+            { src: 'idol1.png', title: 'Idol1' },
+            { src: 'idol2.png', title: 'Idol2' }
+        ],
     };
 
     const galleryGrid = document.querySelector('.gallery-grid');
@@ -198,3 +196,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize
     renderGallery();
 });
+
