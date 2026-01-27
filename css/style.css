@@ -407,6 +407,10 @@ ul {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     border: 2px solid var(--secondary-color);
+    aspect-ratio: 1 / 1;
+    /* Force square shape even if video fails */
+    background: #000;
+    /* Black background if video fails */
 }
 
 .square-video {
