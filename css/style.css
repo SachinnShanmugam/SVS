@@ -370,16 +370,17 @@ ul {
 
 @media (max-width: 768px) {
     .section-title {
-        font-size: 1.2rem;
-        /* Even smaller for mobile one-liner */
+        font-size: 1rem;
+        /* Small enough to fit "CRAFTSMANSHIP" on one line */
+        letter-spacing: 0.5px;
+        /* Tighter letter spacing on mobile */
+        white-space: nowrap;
+        /* Force one line */
+        overflow: hidden;
+        /* Prevent scrollbar if it barely overflows */
+        text-overflow: ellipsis;
+        /* Graceful fail */
     }
-}
-
-left: 50%;
-transform: translateX(-50%);
-width: 60px;
-height: 3px;
-background-color: var(--secondary-color);
 }
 
 /* About */
