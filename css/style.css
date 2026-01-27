@@ -600,31 +600,37 @@ ul {
 }
 
 @media (max-width: 768px) {
+    .section {
+        padding: 30px 5px;
+        /* Minimal side padding to maximize content width */
+    }
+
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
-        /* Force 2 columns on mobile */
-        gap: 10px;
-        /* Tighter gap for 2-column mobile layout */
+        gap: 8px;
+        /* Minimal gap */
+        width: 100%;
     }
 
     .service-card {
-        padding: 15px 10px;
-        /* Even smaller padding for mobile cards */
+        padding: 15px 5px;
+        /* Minimal internal padding */
     }
 
     .icon-box {
         font-size: 1.5rem;
-        /* Smaller icons for mobile */
-        margin-bottom: 8px;
+        margin-bottom: 5px;
     }
 
     .service-card h3 {
-        font-size: 1rem;
-        /* Smaller text to prevent wrapping */
+        font-size: 1.1rem;
+        /* Bigger title */
+        margin-bottom: 5px;
     }
 
     .service-card p {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+        /* Bigger body text */
         line-height: 1.3;
     }
 }
