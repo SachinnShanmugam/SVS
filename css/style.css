@@ -407,8 +407,8 @@ ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     /* slightly smaller min-width for better fitting */
-    gap: 15px;
-    /* Reduced from 30px for precision */
+    gap: 20px;
+    /* Increased from 15px for better spacing */
 }
 
 /* Video Showcase */
