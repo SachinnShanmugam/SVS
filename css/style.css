@@ -337,14 +337,19 @@ ul {
 /* =========================================
    5. Sections (About, Services)
    ========================================= */
+/* =========================================
+   5. Sections (About, Services)
+   ========================================= */
 .section {
-    padding: 60px 20px;
+    padding: 30px 20px;
+    /* Reduced from 60px to remove gap */
 }
 
 .section-title {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    /* Reduced from 50px */
     position: relative;
     padding-bottom: 15px;
 }
@@ -388,7 +393,8 @@ ul {
 
 /* Video Showcase */
 .video-showcase {
-    margin-top: 40px;
+    margin-top: 20px;
+    /* Reduced from 40px */
     width: 100%;
     display: flex;
     justify-content: center;
