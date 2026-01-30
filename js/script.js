@@ -63,6 +63,12 @@
             { src: 'structure7.jpg', title: 'Structure7' }
         ],
         'temple-works': [
+            { src: '10.jpeg', title: '10' },
+            { src: '11.jpeg', title: '11' },
+            { src: '12.jpeg', title: '12' },
+            { src: '7.jpeg', title: '7' },
+            { src: '8.jpeg', title: '8' },
+            { src: '9.jpeg', title: '9' },
             { src: 'work1.jpg', title: 'Work1' },
             { src: 'work2.jpg', title: 'Work2' },
             { src: 'work3.jpg', title: 'Work3' },
@@ -99,6 +105,14 @@
             { src: 'ornament9.jpg', title: 'Ornament9' }
         ],
         'idols': [
+            { src: '1.jpeg', title: '1' },
+            { src: '13.jpeg', title: '13' },
+            { src: '14.jpeg', title: '14' },
+            { src: '2.jpeg', title: '2' },
+            { src: '3.jpeg', title: '3' },
+            { src: '4.jpeg', title: '4' },
+            { src: '5.jpeg', title: '5' },
+            { src: '6.jpeg', title: '6' },
             { src: 'idol1.jpg', title: 'Idol1' },
             { src: 'idol10.jpg', title: 'Idol10' },
             { src: 'idol11.jpg', title: 'Idol11' },
@@ -288,3 +302,4 @@
     // Initialize
     renderGallery();
 });
+
